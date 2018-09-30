@@ -1,0 +1,55 @@
+<!-- header -->
+<include file="./Application/Admin/View/Common/header.html" />
+			<div class="row">
+				<!-- left -->
+				<include file="./Application/Admin/View/Common/left.html" />
+				<div class="col-lg-10">
+					<div class="row">
+						<!--路径导航-->
+						<ol class="breadcrumb">
+						      当前位置：
+						  <li><a href="#">用户管理</a></li>
+						  <li class="active">管理员列表</li>
+						</ol>
+					</div>
+					<!-- main -->
+					<div class="row">
+						<table class="table table-striped table-hover table-responsive">
+							<tr>
+								<th>id</th>
+								<th>用户名</th>
+								<th>角色</th>
+								<th>登录时间</th>
+								<th>修改时间</th>
+								<th>创建时间</th>
+								<th>操作</th>
+							</tr>
+							<foreach name="data" item="v">
+							<tr>
+								<td>{$v['id']}</td>
+								<td>{$v['username']}</td>
+								<td>{$v['role_id']}</td>
+								<td>{$v['login_time']|date="Y-m-d H:i:s",###}</td>
+								<td>{$v['update_time']|date="Y-m-d",###}</td>
+								<td>{$v['create_time']|date="Y-m-d",###}</td>
+								<td>
+									<a href="{:U('admin/Manager/upd')}?id={$v.id}" class="btn btn-warning btn-xs">编辑</a>
+									<a href="{:U('admin/Manager/del?id=$v.id')}" class="btn btn-danger btn-xs">删除</a>
+								</td>
+							</tr>
+							</foreach>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+	<!-- footer -->
+	<include file="./Application/Admin/View/Common/footer.html" />
+	</body>
+</html>
