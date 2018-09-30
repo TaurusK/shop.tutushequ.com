@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	    <link rel="stylesheet" href="{:C('STATIC_RESOURCE')}css/bootstrap3.3.7.min.css" />
+		<title>后台首页</title>
+		<style>
+			.top{
+				color: #fffff3;
+				background:#222222;
+				padding:10px;
+			}
+			.left{
+				color:#95b1a7;
+				background:#4d5e70;
+			}
+			.left_height{
+				height: calc(100vh - 54px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row top">
+				<div class="col-lg-2">商城后台管理系统</div>
+				<div class="col-lg-10 text-right dropdown">
+					超级管理员：
+				  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				    {:session('username')}
+				    <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+				    <li><a href="{:U('Admin/Login/logout')}">退出</a></li>
+				  </ul>
+				</div>
+			</div>
