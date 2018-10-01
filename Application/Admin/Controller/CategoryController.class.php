@@ -11,7 +11,10 @@ class CategoryController extends CommonController{
 		//调用模型
 		$category = new CategoryModel();
 		
-		$cateData = $category->select();
+		$cateData = $category->field('c1.id,c1.pid,c1.category_name,c2.category_name pname')
+							->alias('c1')
+							->join('LEFT JOIN sh_category c2 ON c1.pid=c2.id')
+							->select();
 		$cateData = $category->recursionCat($cateData);
 		
 		//注册模版变量

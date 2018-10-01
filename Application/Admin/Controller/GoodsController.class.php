@@ -8,7 +8,22 @@ class GoodsController extends CommonController{
 		
 	//后台首页
 	public function index(){
-		//dump(U());
+
+		//调用模型
+		$goods = new GoodsModel();
+		
+		$goodsData = $goods->field('g.id,c.category_name,g.goods_name,g.goods_img,g.goods_price,
+									g.is_sale,g.is_del,g.goods_amount,g.sell_count,
+									g.create_time,g.update_time')
+							->alias('g')
+							->join('LEFT JOIN sh_category c ON g.category_id=c.id')
+							->select();
+		
+		
+		
+		//dump($goodsData);
+		//注册模版变量
+		$this->assign('goodsData',$goodsData);
 		$this->display();
 		
 	}
@@ -39,6 +54,8 @@ class GoodsController extends CommonController{
 				$post['goods_img'] = $file['goods_img']['savepath'].$file['goods_img']['savename'];
 				
 				//组合数据
+				//生成商品货号
+				$post['goods_sn'] = 'SN'.date('Ymdhis',time()).rand(1000, 9999);
 				$post['update_time'] = time();
 				$post['create_time'] = time();
 				//数据入库，并获得新增商品id

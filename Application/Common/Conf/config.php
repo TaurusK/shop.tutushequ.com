@@ -3,7 +3,21 @@ return array(
 
 	/* 自定义配置*/
 	'STATIC_RESOURCE'       => '/Public/static/',         //公共静态资源
-	'GOODS_UPLOADS'         => './Public/uploads/goods/',       //商品图片保存路径    
+	'GOODS_UPLOADS'         => './Public/uploads/goods/',       //商品图片保存路径,此路径为系统路径
+	'GOODS_UPLOADS_URL'     => '/Public/uploads/goods/',    //商品图片保存url路径, 此路径为网络路径
+	
+	'IS_SALE'               => [     //商品是否上架
+		
+		0=>'<span style="color:red;">否</span>',
+		1=>'<span style="color:green;">是</span>'
+	
+	],
+	'IS_DEL'               => [     //商品是否删除
+		
+		0=>'<span style="color:red;">否</span>',
+		1=>'<span style="color:green;">是</span>'
+	
+	],
 
 	/* 数据库设置 */
     'DB_TYPE'               =>  'mysql',     // 数据库类型
