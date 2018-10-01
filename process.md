@@ -34,3 +34,19 @@ sh_auth 表字段：
 **id auth_value，pid，update_time，create_time**
 
 完成了，用户添加、编辑，列表显示功能，用户登录，退出、防翻墙功能
+
+## 商品管理模块
+
+1.设计表，这里最少需要3张表
+
+1.商品表：sh_goods
+
+字段：id, category_id, goods_name, goods_img, goods_info, goods_price, is_sale(是否上架)，is_del(是否删除)，goods_amount(商品库存)
+
+2.分类表：sh_category
+
+字段：id, pid, category_name
+
+商品属性表：sh_attribute
+
+字段：id, goods_id, size, color

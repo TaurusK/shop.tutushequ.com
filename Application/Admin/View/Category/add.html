@@ -1,0 +1,54 @@
+<!-- header -->
+<include file="./Application/Admin/View/Common/header.html" />
+			<div class="row">
+				<!-- left -->
+				<include file="./Application/Admin/View/Common/left.html" />
+				<div class="col-lg-10">
+					<div class="row">
+						<!--路径导航-->
+						<ol class="breadcrumb">
+						      当前位置：
+						  <li><a href="#">商品管理</a></li>
+						  <li class="active">添加分类</li>
+						</ol>
+					</div>
+					<!-- main -->
+					<div>
+						<form class="form-horizontal" method="post">
+							<div class="form-group">
+								<label for="inputEmail3" class="col-sm-2 control-label">所属分类</label>
+								<div class="col-sm-3">
+									<select name="pid" class="form-control">
+									  <option value="0">顶级分类</option>
+									  <foreach name="cateData" item="v">
+									  	<option value="{$v.id}">{:str_repeat('--',$v['level']*2)}{$v.category_name}</option>
+									  </foreach>
+									</select>
+								</div>
+							</div>
+						  <div class="form-group">
+						    <label for="inputEmail3" class="col-sm-2 control-label">分类名</label>
+						    <div class="col-sm-3">
+						      <input type="text" name="category_name" class="form-control" id="inputEmail3">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <div class="col-sm-offset-2 col-sm-3">
+						      <button type="submit" class="btn btn-default">添加</button>
+						    </div>
+						  </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+	<!-- footer -->
+	<include file="./Application/Admin/View/Common/footer.html" />
+	</body>
+</html>
