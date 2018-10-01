@@ -3,6 +3,7 @@ return array(
 
 	/* 自定义配置*/
 	'STATIC_RESOURCE'       => '/Public/static/',         //公共静态资源
+	'GOODS_UPLOADS'         => './Public/uploads/goods/',       //商品图片保存路径    
 
 	/* 数据库设置 */
     'DB_TYPE'               =>  'mysql',     // 数据库类型
