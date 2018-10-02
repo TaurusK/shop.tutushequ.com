@@ -12,6 +12,28 @@
 		<!-- slider -->
 		<script src="{:C('STATIC_RESOURCE')}js/slider.js"></script>
 		<title>商城详情页</title>
+		<style>
+			.img-360{
+				width:100%;
+				max-width:360px;
+				max-height: 500px;
+				
+			}
+			.margin-top-0 {
+				margin-top:0px;
+			}
+			.price {
+				font-size:24px;
+				color:#ef2f23;
+			}
+			.gray-color{
+				color:#999999;
+			}
+			.no-block {
+				display:inline-block;
+				width:60px;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -79,6 +101,62 @@
 				</nav>
 			</div>
 			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-3">
+					<img src="http://shop.tutushequ.com/Public/uploads/goods/2018-10-01/5bb212480eb13.jpg" alt="图片加载失败" class="img-360">
+				</div>
+				<div class="col-lg-5">
+					<form method="post" action="">
+					<h3 class="margin-top-0">夏季新款纯色白色t恤短袖女2018韩版四色V领百搭简约小清新宽松体恤女上衣</h3>
+					<input type="hidden" name="goods_name" value="夏季新款纯色白色t恤短袖女2018韩版四色V领百搭简约小清新宽松体恤女上衣" />
+					<div class="panel panel-default">
+					  <div class="panel-heading"><span class="gray-color">价格：</span><del>￥57.00</del></div>
+					  <div class="panel-heading"><span class="gray-color">促销价：</span><strong class="price">￥39.90</strong></div>
+					  <input type="hidden" name="goods_price" value="39.90" />
+					  <div class="panel-heading"><span class="gray-color">销量：</span>5079</div>
+					  <div class="panel-body">
+					    	<span class="gray-color">颜色：</span>
+					    	<label class="radio-inline">
+							  <input type="radio" name="color" id="inlineRadio1" value="option1"> 红
+							</label>
+							<label class="radio-inline">
+							  <input type="radio" name="color" id="inlineRadio2" value="option2"> 白
+							</label>
+							<label class="radio-inline">
+							  <input type="radio" name="color" id="inlineRadio3" value="option3"> 黑
+							</label>
+					  </div>
+					  <div class="panel-body">
+					    	<span class="gray-color">尺寸：</span>
+					    	<label class="radio-inline">
+							  <input type="radio" name="size" id="inlineRadio1" value="option1"> S
+							</label>
+							<label class="radio-inline">
+							  <input type="radio" name="size" id="inlineRadio2" value="option2"> M
+							</label>
+							<label class="radio-inline">
+							  <input type="radio" name="size" id="inlineRadio3" value="option3"> L
+							</label>
+					  </div>
+					  <div class="panel-body">
+					  	<span class="gray-color">数量：</span>
+				    	<button type="button" class="btn btn-default">-</button>
+				    	<input type="text" name="sell_count" class="form-control no-block" value="1">
+				    	<button type="button" class="btn btn-default">+</button>
+				    	<span class="gray-color">&nbsp;&nbsp;库存：106674 件</span>
+					  </div>
+					  <div class="panel-body">
+					  	<button type="submit" class="btn btn-danger">立刻购买</button>
+					  	<button type="button" class="btn btn-default">加入购物车</button>
+					  	<input type="hidden" name="goods_sn" value="SN201810011014194286" />
+					  </div>
+					</div>
+					</form>
+				</div>
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2">
+					广告占位
+				</div>
 				
 			</div>
 		</div>
