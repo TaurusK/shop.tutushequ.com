@@ -12,6 +12,7 @@
 		<!-- slider -->
 		<script src="{:C('STATIC_RESOURCE')}js/slider.js"></script>
 		<title>图图潮牌商城</title>
+
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -47,6 +48,54 @@
 				</div>
 				</div>
 				<script type="text/javascript">jssor_1_slider_init();</script>
+			</div>
+			<!-- 热卖 -->
+			<div class="row">
+				<h3 class="text-center">热卖</h3>
+				<foreach name="hotGoods" item="hot">
+					<div class="col-sm-6 col-md-3">
+					    <div class="thumbnail">
+					      <img src="{:C('GOODS_UPLOADS_URL')}{$hot.goods_img}" alt="...">
+					      <div class="caption">
+					        <p>{$hot.goods_name}</p>
+					        <p style="color:#ef2f23;font-size:18px;"><strong>￥{$hot.goods_price}</strong></p>
+					        <p><a href="{:U('Home/Goods/detail')}?id={$hot.id}" class="btn btn-danger" role="button">查看详情</a></p>
+					      </div>
+					    </div>
+					</div>
+				</foreach>
+			</div>
+			<!-- 推荐 -->
+			<div class="row">
+				<h3 class="text-center">推荐</h3>
+				<foreach name="recommendGoods" item="recommend">
+					<div class="col-xs-6 col-md-3">
+					    <div class="thumbnail">
+					      <img src="{:C('GOODS_UPLOADS_URL')}{$recommend.goods_img}" alt="...">
+					      <div class="caption">
+					        <p>{$recommend.goods_name}</p>
+					        <p style="color:#ef2f23;font-size:18px;"><strong>￥{$recommend.goods_price}</strong></p>
+					        <p><a href="{:U('Home/Goods/detail')}?id={$recommend.id}" class="btn btn-danger" role="button">查看详情</a></p>
+					      </div>
+					    </div>
+					</div>
+				</foreach>
+			</div>
+			<!-- 新品 -->
+			<div class="row">
+				<h3 class="text-center">新品</h3>
+				<foreach name="newsGoods" item="news">
+					<div class="col-sm-6 col-md-3">
+					    <div class="thumbnail">
+					      <img src="{:C('GOODS_UPLOADS_URL')}{$news.goods_img}" alt="...">
+					      <div class="caption">
+					        <p>{$news.goods_name}</p>
+					        <p style="color:#ef2f23;font-size:18px;"><strong>￥{$news.goods_price}</strong></p>
+					        <p><a href="{:U('Home/Goods/detail')}?id={$news.id}" class="btn btn-danger" role="button">查看详情</a></p>
+					      </div>
+					    </div>
+					</div>
+				</foreach>
 			</div>
 		</div>
 		
