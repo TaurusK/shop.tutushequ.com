@@ -50,3 +50,9 @@ sh_auth 表字段：
 商品属性表：sh_attribute
 
 字段：id, goods_id, size, color
+
+## 前台用户模块
+
+用户表：sh_user
+
+字段：uid, acc, password, nickname, email, phone, openid, level, login_time, create_time, update_time

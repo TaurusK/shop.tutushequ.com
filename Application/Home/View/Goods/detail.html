@@ -38,116 +38,49 @@
 	<body>
 		<div class="container-fluid">
 			<!-- nav start -->
-			<div class="row">
-				<nav class="navbar navbar-inverse">
-				  <div class="container-fluid">
-				    <!-- 下面的navbar-header 是品牌和切换分组，以更好的移动显示 -->
-				    <div class="navbar-header">
-				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				        <span class="sr-only">Toggle navigation</span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				      </button>
-				      <a class="navbar-brand" href="#">图图服饰</a>
-				    </div>
-				
-				    <!-- Collect the nav links, forms, and other content for toggling -->
-				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				      <ul class="nav navbar-nav">
-				        <li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
-				        <li class="dropdown">
-				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">上衣 <span class="caret"></span></a>
-				          <ul class="dropdown-menu">
-				            <li><a href="#">Action</a></li>
-				            <li><a href="#">Another action</a></li>
-				            <li><a href="#">Something else here</a></li>
-				            <li role="separator" class="divider"></li>
-				            <li><a href="#">Separated link</a></li>
-				            <li role="separator" class="divider"></li>
-				            <li><a href="#">One more separated link</a></li>
-				          </ul>
-				        </li>
-				        <li class="dropdown">
-				         <a href="#">裙子</a>
-				        </li>
-				      </ul>
-				      <!-- search -->
-				      <form class="navbar-form navbar-left">
-				        <div class="form-group">
-				          <input type="text" class="form-control" placeholder="搜索商品">
-				        </div>
-				        <button type="submit" class="btn btn-default">搜索</button>
-				      </form>
-				      
-				      <ul class="nav navbar-nav navbar-right">
-				        <li><a href="#">登录</a></li>
-				        <li><a href="#">注册</a></li>
-				        <li class="dropdown">
-				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">kk <span class="caret"></span></a>
-				          <ul class="dropdown-menu">
-				            <li><a href="#">个人中心</a></li>
-				            <li role="separator" class="divider"></li>
-				            <li><a href="#">订单管理</a></li>
-				            <li role="separator" class="divider"></li>
-				            <li><a href="#">我的购物车</a></li>
-				            <li role="separator" class="divider"></li>
-				            <li><a href="#">退出登录</a></li>
-				          </ul>
-				        </li>
-				      </ul>
-				    </div><!-- /.navbar-collapse -->
-				  </div><!-- /.container-fluid -->
-				</nav>
-			</div>
+			<include file="./Application/Home/View/Common/nav_top.html" />
+			<!-- nav end -->
 			<div class="row">
 				<div class="col-lg-1"></div>
 				<div class="col-lg-3">
-					<img src="http://shop.tutushequ.com/Public/uploads/goods/2018-10-01/5bb212480eb13.jpg" alt="图片加载失败" class="img-360">
+					<img src="{:C('GOODS_UPLOADS_URL')}{$goodsData.goods_img}" alt="图片加载失败" class="img-360">
 				</div>
 				<div class="col-lg-5">
-					<form method="post" action="">
-					<h3 class="margin-top-0">夏季新款纯色白色t恤短袖女2018韩版四色V领百搭简约小清新宽松体恤女上衣</h3>
-					<input type="hidden" name="goods_name" value="夏季新款纯色白色t恤短袖女2018韩版四色V领百搭简约小清新宽松体恤女上衣" />
+					<form method="post" action="{:U('home/Goods/buy')}">
+					<h3 class="margin-top-0">{$goodsData.goods_name}</h3>
+					<input type="hidden" name="goods_name" value="{$goodsData.goods_name}" />
 					<div class="panel panel-default">
-					  <div class="panel-heading"><span class="gray-color">价格：</span><del>￥57.00</del></div>
-					  <div class="panel-heading"><span class="gray-color">促销价：</span><strong class="price">￥39.90</strong></div>
-					  <input type="hidden" name="goods_price" value="39.90" />
-					  <div class="panel-heading"><span class="gray-color">销量：</span>5079</div>
+					  <div class="panel-heading"><span class="gray-color">价格：</span><del>￥{$goodsData['goods_price']*(12/10)}</del></div>
+					  <div class="panel-heading"><span class="gray-color">促销价：</span><strong class="price">￥{$goodsData.goods_price}</strong></div>
+					  <input type="hidden" name="goods_price" value="{$goodsData.goods_price}" />
+					  <div class="panel-heading"><span class="gray-color">销量：</span>{$goodsData.sell_count}</div>
 					  <div class="panel-body">
 					    	<span class="gray-color">颜色：</span>
-					    	<label class="radio-inline">
-							  <input type="radio" name="color" id="inlineRadio1" value="option1"> 红
-							</label>
-							<label class="radio-inline">
-							  <input type="radio" name="color" id="inlineRadio2" value="option2"> 白
-							</label>
-							<label class="radio-inline">
-							  <input type="radio" name="color" id="inlineRadio3" value="option3"> 黑
-							</label>
+					    	<foreach name="color" item="goods_color">
+						    	<label class="radio-inline">
+								  <input type="radio" name="color" id="inlineRadio1" value="{$goods_color}"> {$goods_color}
+								</label>
+					    	</foreach>
 					  </div>
 					  <div class="panel-body">
 					    	<span class="gray-color">尺寸：</span>
-					    	<label class="radio-inline">
-							  <input type="radio" name="size" id="inlineRadio1" value="option1"> S
-							</label>
-							<label class="radio-inline">
-							  <input type="radio" name="size" id="inlineRadio2" value="option2"> M
-							</label>
-							<label class="radio-inline">
-							  <input type="radio" name="size" id="inlineRadio3" value="option3"> L
-							</label>
+					    	<foreach name="size" item="goods_item">
+						    	<label class="radio-inline">
+								 	<input type="radio" name="size" id="inlineRadio1" value="{$goods_item}"> {$goods_item}
+								</label>
+					    	</foreach>
 					  </div>
 					  <div class="panel-body">
 					  	<span class="gray-color">数量：</span>
 				    	<button type="button" class="btn btn-default">-</button>
-				    	<input type="text" name="sell_count" class="form-control no-block" value="1">
+				    	<input type="text" name="goods_num" class="form-control no-block" value="1">
 				    	<button type="button" class="btn btn-default">+</button>
-				    	<span class="gray-color">&nbsp;&nbsp;库存：106674 件</span>
+				    	<span class="gray-color">&nbsp;&nbsp;库存：{$goodsData.goods_amount} 件</span>
 					  </div>
 					  <div class="panel-body">
 					  	<button type="submit" class="btn btn-danger">立刻购买</button>
 					  	<button type="button" class="btn btn-default">加入购物车</button>
+					  	<input type="hidden" name="goods_img" value="{$goodsData.goods_img}" />
 					  	<input type="hidden" name="goods_sn" value="SN201810011014194286" />
 					  </div>
 					</div>

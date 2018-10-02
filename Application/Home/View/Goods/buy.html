@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	    <link rel="stylesheet" href="{:C('STATIC_RESOURCE')}css/bootstrap3.3.7.min.css" />
+	    
+		<title>图图潮牌商城</title>
+		<style>
+			.text_overflow {
+				display: inline-block;
+				max-width: 200px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.size-100 {
+				max-width:100px;
+				max-height:80px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<!-- nav start -->
+			<include file="./Application/Home/View/Common/nav_top.html" />
+			<!-- nav end -->
+			<div class="row">
+				<table class="table table-striped">
+					<tr>
+						<th>图片</th>
+						<th>商品名</th>
+						<th>颜色</th>
+						<th>尺寸</th>
+						<th>数量</th>
+						<th>价格</th>
+					</tr>
+					<tr>
+						<td><img class="size-100" src="{:C('GOODS_UPLOADS_URL')}{$orders.goods_img}" alt="" /></td>
+						<td class="size-100">{$orders.goods_name}</td>
+						<td>{$orders.color}</td>
+						<td>{$orders.size}</td>
+						<td>{$orders.goods_num}</td>
+						<td>{$orders.total_price}</td>
+					</tr>
+					<tr>
+						<td colspan="6" class="text-right">
+							<button type="submit" class="btn btn-danger">立刻支付</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		
+		
+	<!-- footer -->
+	<include file="./Application/Admin/View/Common/footer.html" />
+	
+	</body>
+</html>
