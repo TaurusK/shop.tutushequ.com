@@ -41,7 +41,7 @@ sh_auth 表字段：
 
 1.商品表：sh_goods
 
-字段：id, category_id, goods_name, goods_img, goods_info, goods_price, is_sale(是否上架)，is_del(是否删除)，goods_amount(商品库存)
+字段：id,goods_sn category_id, goods_name, goods_img, goods_info, goods_price, is_sale(是否上架)，is_del(是否删除)，goods_amount(商品库存)
 
 2.分类表：sh_category
 
@@ -50,3 +50,9 @@ sh_auth 表字段：
 商品属性表：sh_attribute
 
 字段：id, goods_id, size, color
+
+## 前台用户模块
+
+用户表：sh_user
+
+字段：uid, acc, password, nickname, email, phone, openid, level, login_time, create_time, update_time

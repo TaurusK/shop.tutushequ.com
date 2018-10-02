@@ -12,77 +12,18 @@
 		<!-- slider -->
 		<script src="{:C('STATIC_RESOURCE')}js/slider.js"></script>
 		<title>图图潮牌商城</title>
+
 	</head>
 	<body>
 		<div class="container-fluid">
 			<!-- nav start -->
-			<div class="row">
-				<nav class="navbar navbar-inverse">
-				  <div class="container-fluid">
-				    <!-- 下面的navbar-header 是品牌和切换分组，以更好的移动显示 -->
-				    <div class="navbar-header">
-				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				        <span class="sr-only">Toggle navigation</span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				      </button>
-				      <a class="navbar-brand" href="#">图图潮牌</a>
-				    </div>
-				
-				    <!-- Collect the nav links, forms, and other content for toggling -->
-				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				      <ul class="nav navbar-nav">
-				        <li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
-				        <li class="dropdown">
-				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">上衣 <span class="caret"></span></a>
-				          <ul class="dropdown-menu">
-				            <li><a href="#">Action</a></li>
-				            <li><a href="#">Another action</a></li>
-				            <li><a href="#">Something else here</a></li>
-				            <li role="separator" class="divider"></li>
-				            <li><a href="#">Separated link</a></li>
-				            <li role="separator" class="divider"></li>
-				            <li><a href="#">One more separated link</a></li>
-				          </ul>
-				        </li>
-				        <li class="dropdown">
-				         <a href="#">裙子</a>
-				        </li>
-				      </ul>
-				      <!-- search -->
-				      <form class="navbar-form navbar-left">
-				        <div class="form-group">
-				          <input type="text" class="form-control" placeholder="搜索商品">
-				        </div>
-				        <button type="submit" class="btn btn-default">搜索</button>
-				      </form>
-				      
-				      <ul class="nav navbar-nav navbar-right">
-				        <li><a href="#">登录</a></li>
-				        <li><a href="#">注册</a></li>
-				        <li class="dropdown">
-				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">kk <span class="caret"></span></a>
-				          <ul class="dropdown-menu">
-				            <li><a href="#">个人中心</a></li>
-				            <li role="separator" class="divider"></li>
-				            <li><a href="#">订单管理</a></li>
-				            <li role="separator" class="divider"></li>
-				            <li><a href="#">我的购物车</a></li>
-				            <li role="separator" class="divider"></li>
-				            <li><a href="#">退出登录</a></li>
-				          </ul>
-				        </li>
-				      </ul>
-				    </div><!-- /.navbar-collapse -->
-				  </div><!-- /.container-fluid -->
-				</nav>
-			</div>
+			<include file="./Application/Home/View/Common/nav_top.html" />
+			<!-- nav end -->
 			<div class="row">
 				<div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:380px;overflow:hidden;visibility:hidden;">
 				<div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
 					<div data-p="170.00"> <img data-u="image" src="http://www.17sucai.com/preview/1266961/2018-09-04/Trends/images/slide-01.jpg" /> </div>
-					<div data-p="170.00"> <img data-u="image" src="http://www.jq22.com/demo/jquerysiple201809260111/img/3.png" /> </div>
+					<div data-p="170.00"> <img data-u="image" src="https://s10.mogucdn.com/mlcdn/c45406/181001_3c674cc7edglh1kfa1fa2867l44ec_960x402.jpg_999x999.v1c0.webp" /> </div>
 					<div data-p="170.00"> <img data-u="image" src="https://s10.mogucdn.com/mlcdn/c45406/180925_19j38a8eg9bk77l0dgeh438l5f2d7_960x402.jpg_999x999.v1c0.webp" /> </div>
 					<div data-p="170.00"> <img data-u="image" src="https://s10.mogucdn.com/mlcdn/c45406/180928_62b93jbgijdgc767cef5g5l59dd15_1144x479.jpg_1000x9999.v1c7E.webp" /> </div>
 				</div>
@@ -107,6 +48,54 @@
 				</div>
 				</div>
 				<script type="text/javascript">jssor_1_slider_init();</script>
+			</div>
+			<!-- 热卖 -->
+			<div class="row">
+				<h3 class="text-center">热卖</h3>
+				<foreach name="hotGoods" item="hot">
+					<div class="col-sm-6 col-md-3">
+					    <div class="thumbnail">
+					      <img src="{:C('GOODS_UPLOADS_URL')}{$hot.goods_img}" alt="...">
+					      <div class="caption">
+					        <p>{$hot.goods_name}</p>
+					        <p style="color:#ef2f23;font-size:18px;"><strong>￥{$hot.goods_price}</strong></p>
+					        <p><a href="{:U('Home/Goods/detail')}?id={$hot.id}" class="btn btn-danger" role="button">查看详情</a></p>
+					      </div>
+					    </div>
+					</div>
+				</foreach>
+			</div>
+			<!-- 推荐 -->
+			<div class="row">
+				<h3 class="text-center">推荐</h3>
+				<foreach name="recommendGoods" item="recommend">
+					<div class="col-xs-6 col-md-3">
+					    <div class="thumbnail">
+					      <img src="{:C('GOODS_UPLOADS_URL')}{$recommend.goods_img}" alt="...">
+					      <div class="caption">
+					        <p>{$recommend.goods_name}</p>
+					        <p style="color:#ef2f23;font-size:18px;"><strong>￥{$recommend.goods_price}</strong></p>
+					        <p><a href="{:U('Home/Goods/detail')}?id={$recommend.id}" class="btn btn-danger" role="button">查看详情</a></p>
+					      </div>
+					    </div>
+					</div>
+				</foreach>
+			</div>
+			<!-- 新品 -->
+			<div class="row">
+				<h3 class="text-center">新品</h3>
+				<foreach name="newsGoods" item="news">
+					<div class="col-sm-6 col-md-3">
+					    <div class="thumbnail">
+					      <img src="{:C('GOODS_UPLOADS_URL')}{$news.goods_img}" alt="...">
+					      <div class="caption">
+					        <p>{$news.goods_name}</p>
+					        <p style="color:#ef2f23;font-size:18px;"><strong>￥{$news.goods_price}</strong></p>
+					        <p><a href="{:U('Home/Goods/detail')}?id={$news.id}" class="btn btn-danger" role="button">查看详情</a></p>
+					      </div>
+					    </div>
+					</div>
+				</foreach>
 			</div>
 		</div>
 		

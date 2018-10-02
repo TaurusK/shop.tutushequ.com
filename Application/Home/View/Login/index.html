@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	    <link rel="stylesheet" href="{:C('STATIC_RESOURCE')}css/bootstrap3.3.7.min.css" />
+		<title>登录</title>
+		<style>
+			.bg{
+				background:#080808;
+			}
+			.login-box {
+				width:300px;
+				display: block;
+				margin:15% auto;
+				color:saddlebrown;
+			}
+		</style>
+	</head>
+	<body class="bg">
+		<div class="container-fluid">
+			<!-- main -->
+			<div class="login-box">
+				<form class="form-horizontal" method="post">
+					<div class="form-group">
+					 	<label for="inputEmail3" class="col-sm-3 control-label">账号</label>
+					    <div class="col-sm-6">
+					      <input type="text" name="acc" class="form-control" id="inputEmail3">
+					    </div>
+					 </div>
+					 <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-3 control-label">密码</label>
+					    <div class="col-sm-6">
+					      <input type="password" name="password" class="form-control" id="inputPassword3">
+					    </div>
+					 </div>
+					 <div class="form-group">
+					    <div class="col-sm-offset-3 col-sm-3">
+					      <button type="submit" class="btn btn-default">登录</button>
+					    </div>
+					 </div>
+				</form>
+			</div>
+		</div>
+		
+	<!-- footer -->
+	<include file="./Application/Admin/View/Common/footer.html" />
+	</body>
+</html>
